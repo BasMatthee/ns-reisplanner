@@ -1,0 +1,21 @@
+services:
+  infrastructure.read_model.repository.station.api:
+    class: NsReisplanner\Infrastructure\ReadModel\Api\ApiStationRepository
+    public: true # Public for integration test
+    arguments:
+      - '@infrastructure.api.ns.client'
+
+  infrastructure.read_model.repository.arrival.api:
+    class: NsReisplanner\Infrastructure\ReadModel\Api\ApiArrivalRepository
+    arguments:
+      - '@infrastructure.api.ns.client'
+
+  infrastructure.read_model.repository.departure.api:
+    class: NsReisplanner\Infrastructure\ReadModel\Api\ApiDepartureRepository
+    arguments:
+      - '@infrastructure.api.ns.client'
+
+  infrastructure.read_model.repository.disruption.api:
+    class: NsReisplanner\Infrastructure\ReadModel\Api\ApiDisruptionRepository
+    arguments:
+      - '@infrastructure.api.ns.client'
