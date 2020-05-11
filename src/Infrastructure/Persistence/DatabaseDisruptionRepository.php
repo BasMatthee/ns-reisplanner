@@ -149,7 +149,7 @@ SQL;
         $statement->execute();
 
         $affectedStations = [];
-        while ($data = $statement->fetch(FetchMode::ASSOCIATIVE)) {
+        foreach ($statement->fetchAll(FetchMode::ASSOCIATIVE) as $data) {
             $affectedStations[] = $this->mapAffectedStationData($data);
         }
 
