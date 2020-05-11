@@ -1,0 +1,21 @@
+doctrine:
+  dbal:
+    default_connection: default
+    connections:
+      default:
+        url: '%env(DATABASE_URL)%'
+        server_version: 5.7
+
+  orm:
+    default_entity_manager: default
+    auto_generate_proxy_classes: '%kernel.debug%'
+    entity_managers:
+      default:
+        connection: default
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        mappings:
+          read_model:
+            is_bundle: false
+            type: annotation
+            dir: '%kernel.project_dir%/src/Application/ReadModel'
+            prefix: NsReisplanner\Application\ReadModel
