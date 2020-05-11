@@ -1,0 +1,28 @@
+<table class="table table-borderless table-striped table-sm">
+    <thead>
+    <tr>
+        <th>Origin</th>
+        <th>Train name</th>
+        <th>Time</th>
+        <th>Track</th>
+    </tr>
+    </thead>
+    {% for arrival in arrivals %}
+        <tr>
+            <td>{{ arrival.origin }}</td>
+            <td>{{ arrival.name }}</td>
+
+            {% if arrival.plannedDateTime.timestamp is same as (arrival.actualDateTime.timestamp) %}
+                <td class="text-center">{{ arrival.actualDateTime|date('H:i') }}</td>
+            {% else %}
+                <td class="table-danger text-center">{{ arrival.actualDateTime|date('H:i') }}</td>
+            {% endif %}
+
+            {% if arrival.plannedTrack is same as (arrival.actualTrack) %}
+                <td class="text-center">{{ arrival.actualTrack }}</td>
+            {% else %}
+                <td class="table-danger text-center">{{ arrival.actualTrack }}</td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,11 @@
+services:
+  controller.station_controller:
+    public: true
+    class: NsReisplanner\Infrastructure\Controller\StationController
+    arguments:
+      - '@infrastructure.read_model.repository.arrival.api'
+      - '@infrastructure.read_model.repository.departure.api'
+      - '@infrastructure.read_model.repository.station'
+      - '@infrastructure.read_model.repository.station_disruption'
+    calls:
+      - [setContainer, ['@service_container']]

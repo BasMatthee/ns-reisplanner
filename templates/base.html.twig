@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="{{ asset('build/styles.css') }}" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            {% block heading %}{% endblock %}
+            {% block body %}{% endblock %}
+        </div>
+        {% block javascripts %}{% endblock %}
+        <script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
+    </body>
+</html>
