@@ -6,3 +6,11 @@ services:
       - '@infrastructure.read_model.repository.station.api'
     tags:
       - { name: console.command }
+
+  infrastructure.command.import_disruptions:
+    class: NsReisplanner\Infrastructure\Command\ImportDisruptionsCommand
+    arguments:
+      - '@infrastructure.read_model.repository.disruption.api'
+      - '@infrastructure.repository.disruption'
+    tags:
+      - { name: console.command }
