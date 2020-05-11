@@ -1,0 +1,32 @@
+version: '3.2'
+
+services:
+  app:
+    build:
+      context: docker/php-apache
+    volumes:
+      - .:/var/www/ns-reisplanner
+    ports:
+      - 80:80
+    environment:
+      DATABASE_URL: mysql://user:password@database:3306/ns_reisplanner?serverVersion=5.7
+
+  database:
+    image: percona
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_DATABASE: ns_reisplanner
+
+  test-database:
+    image: percona
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_DATABASE: ns_reisplanner
