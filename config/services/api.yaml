@@ -1,0 +1,11 @@
+services:
+  infrastructure.api.ns.client:
+    class: NsReisplanner\Infrastructure\Api\NsApiClient
+    arguments:
+      - '@infrastructure.guzzle.client'
+      - '@monolog.logger'
+      - '%env(NS_API_KEY)%'
+
+  infrastructure.guzzle.client:
+    public: false
+    class: GuzzleHttp\Client
