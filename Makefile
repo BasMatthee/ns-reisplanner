@@ -1,6 +1,6 @@
 all: vendor node_modules assets
 
-test: coding-standards unit-tests security-tests
+test: coding-standards unit-tests integration-tests security-tests
 
 coding-standards:
 	vendor/bin/phpcs -n -p --colors
