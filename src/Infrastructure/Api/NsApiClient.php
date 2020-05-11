@@ -14,6 +14,7 @@ use function http_build_query;
 use function json_decode;
 use function json_encode;
 use function sprintf;
+use function strpos;
 use const JSON_THROW_ON_ERROR;
 
 final class NsApiClient implements ApiClient

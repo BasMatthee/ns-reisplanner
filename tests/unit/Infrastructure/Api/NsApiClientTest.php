@@ -14,6 +14,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\Log\LoggerInterface;
 use function json_decode;
+use function sprintf;
 use const JSON_THROW_ON_ERROR;
 
 class NsApiClientTest extends TestCase
