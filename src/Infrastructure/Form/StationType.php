@@ -28,6 +28,7 @@ final class StationType extends AbstractType
             'expanded' => false,
             'label' => 'Select station',
             'choices' => $this->createOptionsForStations(),
+            'translation_domain' => false,
         ]);
     }
 
