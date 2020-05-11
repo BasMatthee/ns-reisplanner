@@ -3,8 +3,8 @@
     <tr>
         <th>Direction</th>
         <th>Train name</th>
-        <th>Time</th>
-        <th>Track</th>
+        <th class="text-center">Time</th>
+        <th class="text-center">Track</th>
     </tr>
     </thead>
     {% for departure in departures %}
@@ -18,7 +18,7 @@
                 <td class="table-danger text-center">{{ departure.actualDateTime|date('H:i') }}</td>
             {% endif %}
 
-            <td>{{ departure.plannedTrack }}</td>
+            <td class="text-center">{{ departure.plannedTrack }}</td>
         </tr>
     {% endfor %}
 </table>
