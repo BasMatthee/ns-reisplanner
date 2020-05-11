@@ -1,0 +1,8 @@
+services:
+  infrastructure.command.import_stations:
+    class: NsReisplanner\Infrastructure\Command\ImportStationsCommand
+    arguments:
+      - '@infrastructure.repository.station'
+      - '@infrastructure.read_model.repository.station.api'
+    tags:
+      - { name: console.command }
