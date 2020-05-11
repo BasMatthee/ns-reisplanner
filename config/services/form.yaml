@@ -1,0 +1,7 @@
+services:
+  infrastructure.form.station_type:
+    class: NsReisplanner\Infrastructure\Form\StationType
+    arguments:
+      - '@infrastructure.read_model.repository.station.api'
+    tags:
+      - { name: form.type, alias: NsReisplanner\Infrastructure\Form\StationType }

@@ -7,5 +7,6 @@ services:
       - '@infrastructure.read_model.repository.departure.api'
       - '@infrastructure.read_model.repository.station'
       - '@infrastructure.read_model.repository.station_disruption'
+      - '%station.default%'
     calls:
       - [setContainer, ['@service_container']]

@@ -5,7 +5,8 @@
 {% block heading %}
     {% include 'heading.html.twig' with {
         'title': 'Arrival and depatures for ' ~ station.name,
-        'subtitle': '* deviating times are marked red'
+        'subtitle': '* deviating times are marked red',
+        'form': form
     } %}
 {% endblock %}
 
