@@ -56,11 +56,17 @@ final class ApiArrivalRepository implements ArrivalRepository
         return new Arrival(
             $arrivalData['origin'],
             $arrivalData['name'],
-            $arrivalData['plannedTrack'],
-            $arrivalData['actualTrack'],
+            $arrivalData['plannedTrack'] ?? 'N.A.',
+            $arrivalData['actualTrack'] ?? 'N.A.',
             $this->mapProductToTrainModel($arrivalData['product']),
-            DateTime::createFromFormat(DateTime::RFC3339, $arrivalData['plannedDateTime']),
-            DateTime::createFromFormat(DateTime::RFC3339, $arrivalData['actualDateTime']),
+            DateTime::createFromFormat(
+                DateTime::RFC3339,
+                $arrivalData['plannedDateTime']
+            ),
+            DateTime::createFromFormat(
+                DateTime::RFC3339,
+                $arrivalData['actualDateTime'] ?? $arrivalData['plannedDateTime']
+            ),
         );
     }
 

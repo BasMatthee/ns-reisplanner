@@ -57,9 +57,15 @@ final class ApiDepartureRepository implements DepartureRepository
             $departureData['direction'],
             $departureData['name'],
             $this->mapProductToTrainModel($departureData['product']),
-            $departureData['plannedTrack'],
-            DateTime::createFromFormat(DateTime::RFC3339, $departureData['plannedDateTime']),
-            DateTime::createFromFormat(DateTime::RFC3339, $departureData['actualDateTime']),
+            $departureData['plannedTrack'] ?? 'N.A.',
+            DateTime::createFromFormat(
+                DateTime::RFC3339,
+                $departureData['plannedDateTime']
+            ),
+            DateTime::createFromFormat(
+                DateTime::RFC3339,
+                $departureData['actualDateTime'] ?? $departureData['plannedDateTime']
+            ),
             $departureData['cancelled']
         );
     }
