@@ -1,0 +1,3 @@
+arrivals_and_departures:
+  path: /departures-and-arrivals
+  controller: controller.station_controller::arrivalsAndDepartures

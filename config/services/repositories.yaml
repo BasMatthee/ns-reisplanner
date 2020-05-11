@@ -1,4 +1,24 @@
 services:
+  infrastructure.repository.station:
+    class: NsReisplanner\Infrastructure\Persistence\DatabaseStationRepository
+    arguments:
+      - '@doctrine.dbal.default_connection'
+
+  infrastructure.repository.disruption:
+    class: NsReisplanner\Infrastructure\Persistence\DatabaseDisruptionRepository
+    arguments:
+      - '@doctrine.dbal.default_connection'
+
+  infrastructure.read_model.repository.station:
+    class: NsReisplanner\Infrastructure\ReadModel\Repository\DatabaseStationRepository
+    arguments:
+      - '@doctrine.dbal.default_connection'
+
+  infrastructure.read_model.repository.station_disruption:
+    class: NsReisplanner\Infrastructure\ReadModel\Repository\DatabaseStationDisruptionRepository
+    arguments:
+      - '@doctrine.dbal.default_connection'
+
   infrastructure.read_model.repository.station.api:
     class: NsReisplanner\Infrastructure\ReadModel\Api\ApiStationRepository
     public: true # Public for integration test
